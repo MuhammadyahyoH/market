@@ -5,16 +5,19 @@ CREATE TABLE IF NOT EXISTS users (
     phone VARCHAR(20) UNIQUE NOT NULL,
     password VARCHAR(128) NOT NULL,
     is_admin BOOLEAN DEFAULT FALSE,
+    is_login BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 """
 
-todos_table = """
+
+products = """
 CREATE TABLE IF NOT EXISTS todos (
     id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES users(id),
     title VARCHAR(255) NOT NULL,
-    status BOOLEAN DEFAULT FALSE,
+    price VARCHAR(255) NOT NULL
+    description VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 """
+
