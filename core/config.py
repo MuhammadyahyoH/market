@@ -19,3 +19,6 @@ DB_CONFIG = {
     "host": DB_HOST,
     "password": DB_PASS
 }
+
+ADMIN_PHONE="998994642200"
+ADMIN_PASSWORD="admin"
