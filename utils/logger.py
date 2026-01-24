@@ -8,7 +8,7 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S"
 )
 
-logger = logging.getLogger("TodoApp")
+logger = logging.getLogger("zakazo")
 
 def get_logger():
     return logger
