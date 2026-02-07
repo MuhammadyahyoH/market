@@ -1,10 +1,7 @@
 import os
-
 from dotenv import load_dotenv
 
-load_dotenv(
-    dotenv_path=".env"
-)
+load_dotenv(dotenv_path=".env")
 
 DB_NAME = os.getenv("DB_NAME")
 DB_USER = os.getenv("DB_USER")
@@ -20,5 +17,10 @@ DB_CONFIG = {
     "password": DB_PASS
 }
 
-ADMIN_PHONE="998994642200"
-ADMIN_PASSWORD="admin"
+SMTP_EMAIL = "sanjarbekwork@gmail.com"
+SMTP_PASSWORD = "ukjc bzah lgvv qvxh"
+SMTP_SERVER = "smtp.gmail.com"
+SMTP_PORT = 587
+
+ADMIN_USERNAME = os.getenv("ADMIN_USERNAME")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")

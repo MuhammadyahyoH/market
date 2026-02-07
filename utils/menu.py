@@ -7,7 +7,7 @@ auth_menu = """
 
 admin_menu = """
     1. Show all products
-    2. Add new product
+    2. Add new product 
     3. Delete product
     4. Show today's menu
     5. Add product today's menu
