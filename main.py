@@ -1,57 +1,53 @@
 from auth.login import login_user, register_user
-from utils.menu import auth_menu, admin_menu, user_menu
-from core.db_settings import execute_query
-from core import models
+from utils.menu import auth_menu, user_menu, admin_menu
 import asyncio
 
 
-def create_tables():
-    execute_query(models.users_table)
-    execute_query(models.products_table)
-
-
-async def admin_panel():
+def admin_panel():
     while True:
         print(admin_menu)
         choice = input("Choose: ")
+
         if choice == "1":
-            await get_all_products()
+            pass
         elif choice == "2":
-            await add_new_product()
+            pass
         elif choice == "3":
-            await delete_product()
+            pass
         elif choice == "4":
-            await show_todays_menu()
+            pass
         elif choice == "5":
-            await add_product_to_todays_menu()
+            pass
         elif choice == "6":
-            await remove_product_from_todays_menu()
+            pass
         elif choice == "7":
-            await show_orders_by_time()
+            pass
         elif choice == "8":
-            await change_order_status()
+            pass
         elif choice == "9":
             break
         else:
-            print("Invalid choice.")
+            print("Invalid choice")
 
-async def user_panel(user):
-    user_id = user['id']
+
+def user_panel():
     while True:
         print(user_menu)
         choice = input("Choose: ")
+
         if choice == "1":
-            await show_todays_menu()
+            pass
         elif choice == "2":
-            await place_order(user_id)
+            pass
         elif choice == "3":
-            await show_my_orders(user_id)
+            pass
         elif choice == "4":
-            await cancel_order(user_id)
+            pass
         elif choice == "5":
             break
         else:
-            print("Invalid choice.")
+            print("Invalid choice")
+
 
 
 async def main():
@@ -59,14 +55,14 @@ async def main():
         print(auth_menu)
         choice = input("Choose: ")
         if choice == "1":
-            user = await login_user()  # Must be async
+            user =  login_user()
             if user:
                 if user.get("role") == "admin":
-                    await admin_panel()
+                   admin_panel()
                 else:
-                    await user_panel(user)
+                     user_panel()
         elif choice == "2":
-            await register_user()  # Must be async
+             register_user()
         elif choice == "3":
             print("Bye!")
             break
