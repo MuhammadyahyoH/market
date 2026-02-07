@@ -1,4 +1,7 @@
 from auth.login import login_user, register_user
+from function.admin_fc import show_all_products, add_new_product, delete_product, show_today_menu, add_to_today_menu, \
+    remove_from_today_menu, show_all_orders, change_order_status
+from function.user_fc import show_today_menu_user, place_order, show_my_orders, cancel_order
 from utils.menu import auth_menu, user_menu, admin_menu
 import asyncio
 
@@ -9,21 +12,21 @@ def admin_panel():
         choice = input("Choose: ")
 
         if choice == "1":
-            pass
+            show_all_products()
         elif choice == "2":
-            pass
+            add_new_product()
         elif choice == "3":
-            pass
+            delete_product()
         elif choice == "4":
-            pass
+            show_today_menu()
         elif choice == "5":
-            pass
+            add_to_today_menu()
         elif choice == "6":
-            pass
+            remove_from_today_menu()
         elif choice == "7":
-            pass
+            show_all_orders()
         elif choice == "8":
-            pass
+            change_order_status()
         elif choice == "9":
             break
         else:
@@ -36,13 +39,13 @@ def user_panel():
         choice = input("Choose: ")
 
         if choice == "1":
-            pass
+            show_today_menu_user()
         elif choice == "2":
-            pass
+            place_order()
         elif choice == "3":
-            pass
+            show_my_orders()
         elif choice == "4":
-            pass
+            cancel_order()
         elif choice == "5":
             break
         else:
