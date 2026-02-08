@@ -33,7 +33,7 @@ def admin_panel():
             print("Invalid choice")
 
 
-def user_panel():
+def user_panel(user_id: int):
     while True:
         print(user_menu)
         choice = input("Choose: ")
@@ -41,16 +41,15 @@ def user_panel():
         if choice == "1":
             show_today_menu_user()
         elif choice == "2":
-            place_order()
+            place_order(user_id)  # ✅ Pass user_id
         elif choice == "3":
-            show_my_orders()
+            show_my_orders(user_id)  # ✅ Pass user_id
         elif choice == "4":
-            cancel_order()
+            cancel_order(user_id)  # ✅ Pass user_id
         elif choice == "5":
             break
         else:
-            print("Invalid choice")
-
+            print("Invalid choice. Try again.")
 
 
 async def main():
@@ -58,17 +57,18 @@ async def main():
         print(auth_menu)
         choice = input("Choose: ")
         if choice == "1":
-            user =  login_user()
+            user = login_user()
             if user:
                 if user.get("role") == "admin":
-                   admin_panel()
+                    admin_panel()
                 else:
-                     user_panel()
+                    user_panel(user["id"])  # Pass user_id!
         elif choice == "2":
-             register_user()
+            register_user()
         elif choice == "3":
             print("Bye!")
             break
+
 
 if __name__ == "__main__":
     asyncio.run(main())

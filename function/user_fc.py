@@ -2,7 +2,6 @@ from core.db_settings import execute_query
 from function.admin_fc import show_today_menu
 
 
-# 1. Show today's menu
 from datetime import date
 
 def show_today_menu_user():
@@ -25,13 +24,13 @@ def show_today_menu_user():
     for row in rows:
         print(f"{row['id']}. {row['name']} - ${row['price']} | Available: {row['amount']}")
 
-# 2. Place order
+
 def place_order(user_id: int):
     show_today_menu_user()
     menu_id = int(input("Enter menu ID to order: "))
     amount = int(input("Enter quantity: "))
 
-    # Optional: select duration
+
     duration_id = None
     duration_rows = execute_query("SELECT id, from_time, to_time, seats FROM durations", fetch="all")
     if duration_rows:
@@ -53,7 +52,7 @@ def place_order(user_id: int):
 
 
 
-# 3. Show my orders
+
 def show_my_orders(user_id: int):
     rows = execute_query(
         """
@@ -77,7 +76,7 @@ def show_my_orders(user_id: int):
         print(f"Order {row['id']}: {row['amount']} x {row['product_name']} | {row['order_type']} | {status} | {row['created_at']}")
 
 
-# 4. Cancel order
+
 def cancel_order(user_id: int):
     show_my_orders(user_id)
     order_id = int(input("Enter order ID to cancel: "))
