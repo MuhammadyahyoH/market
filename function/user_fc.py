@@ -1,8 +1,6 @@
 from core.db_settings import execute_query
-from function.admin_fc import show_today_menu
-
-
 from datetime import date
+
 
 def show_today_menu_user():
     today = date.today()

@@ -1,6 +1,5 @@
 from core.db_settings import execute_query
 
-# 1. Show all products
 def show_all_products():
     rows = execute_query(
         "SELECT id, title, price, description FROM products ORDER BY id",
@@ -13,7 +12,6 @@ def show_all_products():
         print(f"{row['id']}. {row['title']} - ${row['price']} | {row['description']}")
 
 
-# 2. Add new product
 def add_new_product():
     title = input("Product title: ")
     price = input("Product price: ")
@@ -27,8 +25,6 @@ def add_new_product():
     print("Product added successfully.")
 
 
-
-# 3. Delete product
 def delete_product():
     show_all_products()
     product_id = int(input("Enter product ID to delete: "))
@@ -36,7 +32,6 @@ def delete_product():
     print("Product deleted.")
 
 
-# 4. Show today's menu
 from datetime import date
 
 def show_today_menu():
@@ -59,8 +54,6 @@ def show_today_menu():
         print(f"{row['id']}. {row['name']} - ${row['price']} | Amount: {row['amount']}")
 
 
-
-# 5. Add product to today's menu
 def add_to_today_menu():
     show_all_products()
     product_id = int(input("Enter product ID to add to today's menu: "))
@@ -75,7 +68,6 @@ def add_to_today_menu():
     )
 
     if existing:
-        # Update amount
         execute_query(
             "UPDATE menu_products SET amount = amount + %s WHERE id = %s",
             (amount, existing['id'])
@@ -91,7 +83,6 @@ def add_to_today_menu():
 
 
 
-# 6. Remove product from today's menu
 def remove_from_today_menu():
     show_today_menu()
     menu_id = int(input("Enter menu ID to remove: "))
@@ -102,7 +93,6 @@ def remove_from_today_menu():
     print("Product removed from today's menu.")
 
 
-# 7. Show all orders
 def show_all_orders():
     rows = execute_query(
         """
@@ -134,7 +124,6 @@ def show_all_orders():
               f"(Menu amount: {row['menu_amount']}) | Type: {row['order_type']} | {status} | {row['created_at']}")
 
 
-# 8. Change order status
 def change_order_status():
     show_all_orders()
     order_id = int(input("Enter order ID to change status: "))
